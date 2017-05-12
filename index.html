@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>practice react-jsonschema-form</title>
+
+  <!-- React -->
+  <script src="node_modules/react/dist/react.js"></script>
+  <script src="node_modules/react-dom/dist/react-dom.js"></script>
+
+  <!-- react-jsonschema-form -->
+  <script src="node_modules/react-jsonschema-form/dist/react-jsonschema-form.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+  <div id="editor"></div>
+  <script>
+
+    const Form = JSONSchemaForm.default;
+
+    const schema = {
+      title: "Todo",
+      type: "object",
+      required: ["title"],
+      properties: {
+        title: {type: "string", title: "Title", default: "A new task"},
+        done: {type: "boolean", title: "Done?", default: false}
+      }
+    };
+
+    ReactDOM.render(React.createElement(Form, { schema: schema }), document.getElementById('editor'))
+
+  </script>
+</body>
+</html>
